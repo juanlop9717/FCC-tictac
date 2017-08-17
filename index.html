@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Simon Game!</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/master.css">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"> 
+
+</head>
+<body>
+	<div class="modal fade startModal"  tabindex="-1" role="dialog" id="modal1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header text-center">
+					<h3>Start A New Game!</h3>
+				</div>
+				<div class="modal-body text-center">
+					<button type="button" class="btn btn-primary" id="newGame">New Game</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade startModal"  tabindex="-1" role="dialog" id="modal4">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header text-center">
+					<h3></h3>
+				</div>
+				<div class="modal-body text-center">
+					<button type="button" class="btn btn-primary" id="again">Play Again</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade startModal"  tabindex="-1" role="dialog" id="modal2">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header text-center">
+					<h3>Which mode do you wanna play?</h3>
+				</div>
+				<div class="modal-body text-center">
+					<button type="button" class="btn btn-primary" id="cpu">CPU</button>
+					<button type="button" class="btn btn-primary" id="player2">2 players</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade startModal"  tabindex="-1" role="dialog" id="modal3">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header text-center">
+					<h3>Which form do you wanna play?</h3>
+				</div>
+				<div class="modal-body text-center">
+					<button type="button" class="btn btn-primary" id="oplayer">O</button>
+					<button type="button" class="btn btn-primary" id="xplayer">X</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container-fluid text-center">
+		<div class="table">
+			<div class="cube" id="cube1"></div>
+			<div class="cube" id="cube2"></div>
+			<div class="cube" id="cube3"></div>
+			<div class="cube" id="cube4"></div>
+			<div class="cube" id="cube5"></div>
+			<div class="cube" id="cube6"></div>
+			<div class="cube" id="cube7"></div>
+			<div class="cube" id="cube8"></div>
+			<div class="cube" id="cube9"></div>
+		</div>
+
+	<span class="player" id="j1">
+		J1
+	</span>
+	<span class="player" id="j2">
+		J2
+	</span>
+
+	<button class="btn" onclick="$('#modal1').modal('show')" style="width: 30%; margin-bottom: 2em">
+		START!
+	</button>
+	
+
+	</div>
+
+
+	<script
+			  src="https://code.jquery.com/jquery-3.2.1.min.js"
+			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			  crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>
