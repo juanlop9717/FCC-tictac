@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Simon Game!</title>
+	<title>Tic Tac Toe!</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/master.css">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"> 
@@ -45,6 +45,9 @@
 					<button type="button" class="btn btn-primary" id="cpu">CPU</button>
 					<button type="button" class="btn btn-primary" id="player2">2 players</button>
 				</div>
+				<div class="modal-footer">
+					<span>WARNING! The Cpu is not very clever.</span>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -66,7 +69,7 @@
 
 	<div class="container-fluid text-center">
 		<div class="table">
-			<div class="cube" id="cube1"></div>
+			<div class="cube" id="cube1"><div class="cross"></div></div>
 			<div class="cube" id="cube2"></div>
 			<div class="cube" id="cube3"></div>
 			<div class="cube" id="cube4"></div>
