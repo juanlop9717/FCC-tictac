@@ -235,9 +235,9 @@ $(document).ready(function(){
 	// Announce the winner of the game 
 	function winnerAnnounce(){
 		if(playersMode){
-				actualPlayer = '';
 				animPlayer($("#j1"), $("#j2"));
 				$("#modal4 h3").append(actualPlayer + " Wins!");
+				actualPlayer = '';
 				$("#modal4").modal('show');
 	
 		}

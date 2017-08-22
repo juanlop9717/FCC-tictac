@@ -37,12 +37,17 @@ body{
 	background-color: #34495e;
 }
 
+.modal-footer span{
+	color: #e74c3c;
+}
+
 .table{
 	border: 1px solid white;
 	height: 800px;
 	width: 1000px;
 	margin: 3em auto;
 	padding: 40px 0;
+
 
 
 }
@@ -139,8 +144,15 @@ body{
 @media only screen and (max-width: 800px){
 	.cube{
 		height: 200px;
-		width: 200px;
+		width: 30%;
 	}
+	.circle{
+		height: 100px;
+		width: 100px;
+
+	}
+
+
 }
 
 @media only screen and (max-width: 600px){
@@ -151,15 +163,59 @@ body{
 
 	.cube{
 		height: 150px;
-		width: 150px;
+		width: 30%;
 	}
+	.circle{
+		height: 75px;
+		width: 75px;
+
+	}
+	.cross { 
+	background: #e74c3c; 
+	height: 75px; 
+	position: relative; 
+	width: 10px;
+	transform: rotate(45deg);
+	margin: 2em auto; }
+
+    .cross:after{
+	 background: #e74c3c; 
+	 content: ""; 
+	 height: 10px; 
+	 left: -30px; 
+	 position: absolute; 
+	 top: 30px; 
+	 width: 75px;
+}
 }
 
 @media only screen and (max-width: 500px){
 	.cube{
 		height: 100px;
-		width: 100px;
+		width: 30%;
 	}
+	.circle{
+		height: 50px;
+		width: 50px;
+
+	}
+		.cross { 
+	background: #e74c3c; 
+	height: 50px; 
+	position: relative; 
+	width: 10px;
+	transform: rotate(45deg);
+	margin: 2em auto; }
+
+    .cross:after{
+	 background: #e74c3c; 
+	 content: ""; 
+	 height: 10px; 
+	 left: -20px; 
+	 position: absolute; 
+	 top: 20px; 
+	 width: 50px;
+}
 }
 
 button.btn{
