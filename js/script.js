@@ -11,11 +11,18 @@ $(document).ready(function(){
 	var playerOne = 'J1';
 	var playerTwo = 'J2';
 	var actualPlayer = 'J2';
-	
+	var ele2;
+	var actualValue;
+	var gameCheck;
+	var randomBol;
+	var count;
+
+
+
 
 	// reset the game
 
-	$("#again").click(function(){
+	$(".again").click(function(){
 		clearVar();
 		$("#modal4").modal('hide');
 		$("#modal4 h3").empty();
@@ -75,16 +82,20 @@ $(document).ready(function(){
 		});
 	
 	};
-	
-	// Append function
 
-	function appendForm(ele, form, index){
-		fullTie = false;
-		if(playersMode){
-			console.log(tableChange)
-			if(tableChange[index] == index){
-				tableChange[index] = actualTurn;
-				if(actualTurn == 'cross'){
+	// Animate the initial player
+
+	animPlayer($("#j1"), $("#j2"));
+
+
+	function emptyIndexies(board){
+  		return  board.filter(s => s != "O" && s != "X");
+	}
+	
+	// Function that make the AI Engine of the CPU
+
+	function changeTurn(ele,form){
+			if(actualTurn == 'cross'){
 					// Check the actual plaer
 					if(actualPlayer == 'J1'){
 						animPlayer($("#j1"), $("#j2"));
@@ -120,62 +131,135 @@ $(document).ready(function(){
 						return checkCube(playersMode);
 					}			
 				}
-			
+	}
+
+
+	// Minimax Algorithm
+
+	/*function score(){
+		if(actualTurn == 'J1'){
+			if(gameCheck){
+				return 10;
 			}
-		}	
+		}
+		if(actualTurn == 'J2'){
+			if(gameCheck){
+				return -10;
+			}
+		}
+		else{
+			return 0
+		}
+
+	}
+
+	function minimax(){
+		return score();
+
+	}*/
+
+
+
+	// Append function
+
+	function randomGen(){
+		count++;
+		randomBol = Math.floor(Math.random() * symbols.length);
+		if(tableChange[randomBol] == randomBol){
+			return appendForm(symbols[randomBol], actualTurn, randomBol);
+			}
+		else{
+			randomGen();
+			console.log(randomBol);
+			}
+		
+
+	}
+
+	function appendForm(ele, form, index){
+		fullTie = false;
+		if(tableChange[index] == index){
+				tableChange[index] = actualTurn;
+				changeTurn(ele,form);
+				setTimeout(function(){
+				if(cpuMode && count == 0){
+					randomGen();
+					
+					}
+				},400)
+		}
 	}
 
 	// click functions
 	symbols[0].click(function(){
-		appendForm(symbols[0], actualTurn, 0);	
+		appendForm(symbols[0], actualTurn, 0);
+		count = 0;	
 	});
 	symbols[1].click(function(){
 		appendForm(symbols[1], actualTurn,1);
+		count = 0;
 	});
 	symbols[2].click(function(){
 		appendForm(symbols[2], actualTurn,2);
+		count = 0;
 	});
 	symbols[3].click(function(){
 		appendForm(symbols[3], actualTurn, 3);
+		count = 0;
 	});
 	symbols[4].click(function(){
 		appendForm(symbols[4], actualTurn,4);
+		count = 0;
 	});
 	symbols[5].click(function(){
 		appendForm(symbols[5], actualTurn,5);
+		count = 0;
 	});
 	symbols[6].click(function(){
 		appendForm(symbols[6], actualTurn,6);
+		count = 0;
 	});
 	symbols[7].click(function(){
 		appendForm(symbols[7], actualTurn,7);
+		count = 0;
 	});
 	symbols[8].click(function(){
 		appendForm(symbols[8], actualTurn,8);
+		count = 0;
 	});
 	symbols[9].click(function(){
 		appendForm(symbols[9], actualTurn,9);
+		count = 0;
 	});
 
-
+	// Announce the winner of the game 
 	function winnerAnnounce(){
 		if(playersMode){
+				actualPlayer = '';
+				animPlayer($("#j1"), $("#j2"));
 				$("#modal4 h3").append(actualPlayer + " Wins!");
 				$("#modal4").modal('show');
 	
 		}
 		if(cpuMode){
-			alert("Gano el cpu  o gane yo ");
-			setTimeout(clearVar(), 1000);
+
+				if(actualPlayer == 'J1'){
+					$("#modal4 h3").append("You Win!");
+				}
+				else{
+					$("#modal4 h3").append("You Lose!");
+				}
+			    actualPlayer = '';
+				$("#modal4").modal('show');
 		}
 
 	}
-			
+
 	// Function that look all the position and assert if a row or column or diagonal of the symbols has been completed
 	function checkCube(){
 
 		// Horizontals
-		if(tableChange[0] == tableChange[1] && tableChange[1] == tableChange[2]){
+		if(tableChange[0] == tableChange[1] && tableChange[1] == tableChange[2]){		
 			winnerAnnounce();	
 		}
 		else if(tableChange[3] == tableChange[4] && tableChange[4] == tableChange[5]){
@@ -206,15 +290,15 @@ $(document).ready(function(){
 				return element == 'circle' ||  element == 'cross'
 			})
 			if(boleta){
-				$("#modal4 h3").append("Its a tie");
+				$("#modal4 h3").append("It's a tie");
 				$("#modal4").modal('show');			
 			}
 
 		}
 	};
 
-	// Reset functions
 
+	// Reset functions
 	function clearVar(){
 		tableChange = [0,1,2,3,4,5,6,7,8];
 		cpuMode = false;
@@ -222,8 +306,9 @@ $(document).ready(function(){
 		$(".circle").remove();
 		$(".cross").remove();
 		actualPlayer = 'J2';
+	}
 
-	};
+		
+	
 
-
-})
+});

@@ -28,9 +28,9 @@ $cubito: #cube;
 	#cube#{$i}:hover {
 		background-color: #2c3e50;
 		cursor: pointer;
+		transition: .2s
 	}
 }
-
 
 
 body{
@@ -50,7 +50,6 @@ body{
 .cube{
 	height: 233.33px;
 	width: 250px;
-
 	display: inline-block;
 }
 
@@ -174,6 +173,7 @@ button.btn{
 
 button.btn:hover{
 	background-color: #c0392b;
+	border-bottom: 5px solid #c0392b;
 	transition: .4s;
 	color: white;
 }
@@ -184,6 +184,10 @@ button.btn:active{
 
 button.btn:active{
 	background-color: #c0392b;
+}
+button.btn:visited{
+	background-color: #c0392b;
+
 }
 
 span.player{
